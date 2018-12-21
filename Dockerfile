@@ -5,6 +5,7 @@ RUN apt-get update -y && \
       DEBIAN_FRONTEND=noninteractive apt-get install -y \
       tmux \
       sudo \
+      ssh \
       curl 
 
 # Install with pip
