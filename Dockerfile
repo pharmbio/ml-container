@@ -7,11 +7,15 @@ RUN apt-get update -y && \
       sudo \
       ssh \
       curl \
-      nano
+      nano \
+      libsm6 \
+      libxext6 \
+      libxrender-dev
 
 # Install with pip
 # RUN pip install --no-cache-dir --upgrade pip==
 RUN pip install --no-cache-dir \
+      opencv-python \
       numpy \
       scipy \
       scikit-learn \
