@@ -6,14 +6,17 @@ RUN apt-get update -y && \
       tmux \
       sudo \
       ssh \
-      curl 
+      curl \
+      nano
 
 # Install with pip
 # RUN pip install --no-cache-dir --upgrade pip==
 RUN pip install --no-cache-dir \
-      opencv-python \
       numpy \
       scipy \
       scikit-learn \
       matplotlib \
-      pandas 
+      pandas \
+      keras \
+      pillow
+      
