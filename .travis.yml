@@ -14,14 +14,11 @@ env:
 
 
 before_install:
-  - './.travis/main.sh'
-
   # check Dockerfile
-  - docker run --rm -i hadolint/hadolint:v1.13.0 hadolint --ignore DL3008 --ignore DL3015 --ignore DL3013 - < Dockerfile
+  #- docker run --rm -i hadolint/hadolint:v1.13.0 hadolint --ignore DL3008 --ignore DL3015 --ignore DL3013 - < Dockerfile
 
 
-# build the images (if this step fails
-# the whole Travis build is considered a failure).
+# build and test the images (if this step fails the whole Travis build is considered a failure).
 script:
 
   # Build Docker image
