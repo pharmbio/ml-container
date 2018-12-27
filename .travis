@@ -1,0 +1,42 @@
+
+sudo: 'required'
+
+services:
+  - docker
+
+branches:
+  except:
+    - /^experimental\/.*$/
+
+env:
+  global:
+    - MY_ENV_VAR=test
+
+
+before_install:
+  - './.travis/main.sh'
+
+  # check Dockerfile
+  - docker run --rm -i hadolint/hadolint:v1.13.0 hadolint --ignore DL3008 --ignore DL3015 --ignore DL3013 - < Dockerfile
+
+
+# build the images (if this step fails
+# the whole Travis build is considered a failure).
+script:
+
+  # Build Docker image
+  # Create a docker image tag out of branch-name where / is replaced by -
+  - tag="${TRAVIS_BRANCH/\//-}"
+  - docker build -t pharmbio/ml-container:$tag .
+
+  # Test container
+  - docker run pharmbio/ml-container:$tag tmux -V
+
+after_success:
+  #- if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+  #    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
+  #    docker push pharmbio/ml-container:$tag
+  #  fi
+
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
+  - docker push pharmbio/ml-container:$tag
