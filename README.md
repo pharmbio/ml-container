@@ -2,7 +2,7 @@
 This repo contains Dockerfile for building a docker container with the tools used for the Machine Learning course
 
 ### On every Github push:
-- The container is automatically build and pushed with **Travis** [https://travis-ci.com/pharmbio/ml-container] to dockerhub `pharmbio/ml-container:<git-branch>`
+- The container is automatically build and pushed with **Travis** [https://travis-ci.com/pharmbio/ml-container] to dockerhub [https://cloud.docker.com/u/pharmbio/repository/docker/pharmbio/ml-container]
 
 Manually build, upload and run:
 ```
