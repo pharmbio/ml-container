@@ -1,5 +1,7 @@
 FROM tensorflow/tensorflow:1.12.0-gpu-py3
 
+ENV SHELL=/bin/bash
+
 # Install with apt
 RUN apt-get update -y && \
       DEBIAN_FRONTEND=noninteractive apt-get install -y \
