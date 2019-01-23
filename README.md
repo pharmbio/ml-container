@@ -8,5 +8,5 @@ Manually build, upload and run:
 ```
 docker build -t pharmbio/ml-container:test .
 docker push pharmbio/ml-container:test
-docker run -it pharmbio/ml-container bash
+docker run -it pharmbio/ml-container:test bash
 ```
