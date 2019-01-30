@@ -26,3 +26,6 @@ RUN pip install --no-cache-dir \
       keras \
       pillow
       
+# copy notebooks
+COPY notebooks/* /notebooks/
+      
